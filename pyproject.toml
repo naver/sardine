@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "sardine-rec"
+version = "1.0.6"
+description = "a Simulator for Automated Recommendation in Dynamic and INteractive Environments"
+authors = ["Romain Deffayet <romain.deffayet@naverlabs.com>", "Thibaut Thonet<thibaut.thonet@naverlabs.com>",
+            "Dongyoon Hwang <godnpeter@kaist.ac.kr>", "Vassilissa Lehoux <vassilissa.lehoux@naverlabs.com>", 
+            "Jean-Michel Renders <jean-michel.renders@naverlabs.com>", "Maarten de Rijke <m.derijke@uva.nl>"]
+readme = "README.md"
+packages = [
+    {include = "sardine"}
+]
+license = "MIT"
+repository = "https://github.com/naver/sardine"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+gymnasium = ">=0.28"
+
+[tool.poetry.group.debug]
+optional = true
+[tool.poetry.group.debug.dependencies]
+line-profiler = "^4.0.3"
+tensorboard = "^2.11.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
