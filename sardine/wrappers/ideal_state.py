@@ -24,7 +24,7 @@ class IdealState(gym.Wrapper):
         super().__init__(env)
 
         ### Observation = [cur_user_embedd, norm_recent_topics_hist, norm_bored_timeout]
-        self.observation_space = gym.spaces.Box(low = 0, high = 1, shape=(env.num_topics * 3,), dtype=np.float32)
+        self.observation_space = gym.spaces.Box(low = 0, high = 1, shape=(env.unwrapped.num_topics * 3,), dtype=np.float32)
 
         # Note: when boredom_influence = "item" the user embedding will be static
 
@@ -71,7 +71,7 @@ class IdealState(gym.Wrapper):
             except ModuleNotFoundError:
                 raise ModuleNotFoundError("You need to install pytorch to generate a dataset in DB3 format.")
             from ..buffer import RolloutBuffer
-            dataset = RolloutBuffer(n_users * self.env.H, 
+            dataset = RolloutBuffer(n_users * self.env.unwrapped.H, 
                 self.observation_space, 
                 self.action_space, 
                 device = "cpu", gamma = 1.0)
@@ -85,7 +85,7 @@ class IdealState(gym.Wrapper):
             obs_space = gym.spaces.Dict(
                 {
                     "state": self.observation_space,
-                    "clicks": gym.spaces.MultiBinary(self.env.slate_size),
+                    "clicks": gym.spaces.MultiBinary(self.env.unwrapped.slate_size),
                 }
             )
             dataset = DictReplayBuffer(n_users * self.H, 

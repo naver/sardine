@@ -15,8 +15,8 @@ class Policy(ABC):
             self.slate_size = slate_size
             self.num_items = num_items
         else:
-            self.slate_size = env.slate_size
-            self.num_items = env.num_items
+            self.slate_size = env.unwrapped.slate_size
+            self.num_items = env.unwrapped.num_items
 
         self.generator = np.random.default_rng(seed=seed)
     

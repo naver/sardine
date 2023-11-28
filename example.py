@@ -13,7 +13,7 @@ from sardine.policies import EpsilonGreedyOracle, EpsilonGreedyAntiOracle
 np.set_printoptions(precision=3, suppress=True)
 
 ## Let's create the environment of our choice
-env = gym.make("SlateRerank-Static-v0")
+env = gym.make("sardine/SlateRerank-Static-v0")
 
 ## If you want to work with Fully observable state, add a wrapper to the environment
 env = IdealState(env)
