@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sardine-rec"
-version = "1.0.7"
+version = "1.0.8"
 description = "a Simulator for Automated Recommendation in Dynamic and INteractive Environments"
 authors = ["Romain Deffayet <romain.deffayet@naverlabs.com>", "Thibaut Thonet<thibaut.thonet@naverlabs.com>",
             "Dongyoon Hwang <godnpeter@kaist.ac.kr>", "Vassilissa Lehoux <vassilissa.lehoux@naverlabs.com>", 
